@@ -1,0 +1,29 @@
+{
+  "name": "circl-server",
+  "version": "1.0.0",
+  "description": "CircL - Real-Time Chat Server",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "lint": "eslint src --ext .js",
+    "lint:fix": "eslint src --ext .js --fix"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.5.4",
+    "mongoose": "^7.3.1",
+    "dotenv": "^16.3.1",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express-rate-limit": "^6.10.0",
+    "node-cron": "^3.0.2",
+    "joi": "^17.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "eslint": "^8.45.0"
+  }
+}

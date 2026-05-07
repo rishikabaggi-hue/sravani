@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicious Eats - Food Delivery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8)), 
+                        url('https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=1200') center/cover;
+            color: white;
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background: #ff6b6b;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #ff5252;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #667eea;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .food-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .food-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+        }
+
+        .food-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .food-info {
+            padding: 1.5rem;
+        }
+
+        .food-info h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .food-info p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            color: #ff6b6b;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .rating {
+            color: #ffc107;
+            font-size: 0.9rem;
+        }
+
+        #about {
+            background: #f8f9fa;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-content img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .about-text h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        #contact {
+            background: #667eea;
+            color: white;
+            text-align: center;
+        }
+
+        #contact h2 {
+            color: white;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .contact-item h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <div class="logo">🍽️ Delicious Eats</div>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" class="btn">Order Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to Delicious Eats</h1>
+        <p>Fresh, Flavorful, and Delivered to Your Door</p>
+        <button class="btn">Explore Menu</button>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="container">
+        <h2>Our Menu</h2>
+        <div class="menu-grid">
+            <!-- Pizza Card -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400" alt="Margherita Pizza">
+                <div class="food-info">
+                    <h3>Margherita Pizza</h3>
+                    <p>Classic Italian pizza with fresh mozzarella and basil</p>
+                    <div class="price">$12.99</div>
+                    <div class="rating">⭐⭐⭐⭐⭐ (125 reviews)</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Burger Card -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400" alt="Classic Burger">
+                <div class="food-info">
+                    <h3>Classic Burger</h3>
+                    <p>Juicy beef patty with lettuce, tomato, and special sauce</p>
+                    <div class="price">$9.99</div>
+                    <div class="rating">⭐⭐⭐⭐⭐ (98 reviews)</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Sushi Card -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?w=400" alt="Sushi Platter">
+                <div class="food-info">
+                    <h3>Sushi Platter</h3>
+                    <p>Assorted fresh sushi rolls with wasabi and ginger</p>
+                    <div class="price">$18.99</div>
+                    <div class="rating">⭐⭐⭐⭐⭐ (156 reviews)</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Salad Card -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400" alt="Caesar Salad">
+                <div class="food-info">
+                    <h3>Caesar Salad</h3>
+                    <p>Fresh romaine lettuce with parmesan and homemade dressing</p>
+                    <div class="price">$8.99</div>
+                    <div class="rating">⭐⭐⭐⭐ (87 reviews)</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Pasta Card -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400" alt="Carbonara Pasta">
+                <div class="food-info">
+                    <h3>Carbonara Pasta</h3>
+                    <p>Creamy sauce with bacon, egg, and pecorino cheese</p>
+                    <div class="price">$13.99</div>
+                    <div class="rating">⭐⭐⭐⭐⭐ (142 reviews)</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Dessert Card -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400" alt="Chocolate Cake">
+                <div class="food-info">
+                    <h3>Chocolate Cake</h3>
+                    <p>Rich, decadent chocolate cake with dark chocolate frosting</p>
+                    <div class="price">$6.99</div>
+                    <div class="rating">⭐⭐⭐⭐⭐ (203 reviews)</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561af1?w=500" alt="Restaurant">
+            <div class="about-text">
+                <h3>Bringing Quality Food to Your Table</h3>
+                <p>For over 10 years, Delicious Eats has been committed to delivering the finest quality food with exceptional service. Our chefs use only the freshest ingredients sourced from local suppliers.</p>
+                <p>We believe that good food brings people together. Whether you're ordering for yourself or a special occasion, we're here to make your meal memorable.</p>
+                <p><strong>Our Promise:</strong> Fresh ingredients, fast delivery, and unforgettable flavors in every bite.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4>📞 Phone</h4>
+                    <p>(555) 123-4567</p>
+                </div>
+                <div class="contact-item">
+                    <h4>📧 Email</h4>
+                    <p>info@deliciouseats.com</p>
+                </div>
+                <div class="contact-item">
+                    <h4>📍 Location</h4>
+                    <p>123 Food Street, Flavor City</p>
+                </div>
+                <div class="contact-item">
+                    <h4>⏰ Hours</h4>
+                    <p>Mon-Sun: 11AM - 11PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Delicious Eats. All rights reserved. | Made with ❤️</p>
+    </footer>
+</body>
+</html>
